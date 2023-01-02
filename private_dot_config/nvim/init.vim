@@ -82,6 +82,7 @@ call dein#begin(s:dein_base)
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-surround')
   call dein#add('rust-lang/rust.vim')
+  call dein#add('christoomey/vim-tmux-navigator')
 
 " Finish Dein initialization (required)
 call dein#end()
