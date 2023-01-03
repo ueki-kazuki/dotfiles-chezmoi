@@ -1,6 +1,9 @@
 [user]
 	email = ueki.kazuki@classmethod.jp
 	name = Kazuki Ueki
+[credential]
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
 [ghq]
 	root = {{ .chezmoi.homeDir }}/Projects
 [secrets]
@@ -13,8 +16,14 @@
 [alias]
 	co = checkout
 [core]
-	excludesFile = /home/uekikazuki/.gitignore
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore
 	editor = nvim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [pull]
 	rebase = false
 	ff = only
