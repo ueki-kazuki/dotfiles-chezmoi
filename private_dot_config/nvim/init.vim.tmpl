@@ -18,10 +18,10 @@ autocmd TermOpen * setlocal statusline=%{b:term_title}
 set nocompatible
 
 " Set Dein base path (required)
-let s:dein_base = '/home/uekikazuki/.local/share/dein'
+let s:dein_base = '{{ .chezmoi.homeDir }}/.local/share/dein'
 
 " Set Dein source path (required)
-let s:dein_src = '/home/uekikazuki/.local/share/dein/repos/github.com/Shougo/dein.vim'
+let s:dein_src = '{{ .chezmoi.homeDir }}/.local/share/dein/repos/github.com/Shougo/dein.vim'
 
 " Set Dein runtime path (required)
 execute 'set runtimepath+=' . s:dein_src
@@ -104,7 +104,7 @@ if dein#check_install()
  call dein#install()
 endif
 
-" Leader{{{
+" Leader
 " https://vim-jp.org/vimdoc-ja/map.html#:map-arguments
 " 2021/01/05
 let mapleader = "\<Space>"
@@ -131,7 +131,7 @@ nnoremap <silent> <Leader>p "+p
 nnoremap <silent> <Leader>P "+P
 vnoremap <silent> <Leader>p "+p
 vnoremap <silent> <Leader>P "+P
-" }}}
+"
 
 runtime! userautoload/*.vim
 
