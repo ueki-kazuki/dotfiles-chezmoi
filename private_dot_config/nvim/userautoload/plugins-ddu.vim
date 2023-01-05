@@ -6,6 +6,7 @@
 call ddu#custom#patch_global({
     \   'ui': 'ff',
     \   'sources': [
+    \     {'name': 'file', 'params': {}},
     \     {'name': 'file_rec',
     \      'params': {
     \        'ignoredDirectories': [
@@ -19,6 +20,10 @@ call ddu#custom#patch_global({
     \   'sourceOptions': {
     \     '_': {
     \       'matchers': ['matcher_substring'],
+    \       'columns': ['filename'],
+    \     },
+    \     'file_rec': {
+    \       'sorters': ['sorter_alpha'],
     \     },
     \   },
     \   'filterParams': {
@@ -35,24 +40,32 @@ call ddu#custom#patch_global({
     \     'ff': {
     \       'startFilter': v:false,
     \       'prompt': '> ',
-    \       'split': 'horizontal',
+    \       'split': 'floating',
     \     }
     \   },
     \ })
 
-call ddu#custom#patch_global({
+call ddu#custom#patch_local('filer', {
     \   'ui': 'filer',
     \   'sources': [{'name': 'file', 'params': {}}],
     \   'sourceOptions': {
     \     '_': {
     \       'columns': ['filename', 'icon_filename'],
+    \       'sorters': ['sorter_alpha'],
     \     },
     \   },
     \   'kindOptions': {
     \     'file': {
     \       'defaultAction': 'open',
     \     },
-    \   }
+    \   },
+    \   'uiParams': {
+    \     'filer': {
+    \       'startFilter': v:false,
+    \       'prompt': '> ',
+    \       'split': 'floating',
+    \     }
+    \   },
     \ })
 
 autocmd FileType ddu-ff call s:ddu_my_settings()
