@@ -15,7 +15,7 @@ highlight ColorColumn ctermfg=gray ctermbg=NONE
 
 " Popup Menu
 highlight Pmenu      ctermfg=255   ctermbg=240 guibg=White
-highlight PmenuSel   ctermfg=255 ctermbg=0 guibg=DarkGrey
+highlight PmenuSel   ctermfg=255 ctermbg=28 guibg=DarkGrey
 highlight PmenuSbar  ctermbg=248 guibg=Grey
 highlight PmenuThumb ctermbg=15  guibg=White
 highlight NormalFloat ctermfg=255 ctermbg=0
