@@ -1,7 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
     # set -x LANG ja_JP.utf8
-    set EDITOR vim
+    set EDITOR nvim
     set fish_prompt_hg_status_added "+"
     set fish_color_autosuggestion brblack
     set -x XDG_CONFIG_HOME ~/.config
