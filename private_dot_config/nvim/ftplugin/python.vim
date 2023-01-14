@@ -10,4 +10,3 @@ autocmd FileType python setl foldmethod=expr
 autocmd FileType python syntax enable
 "}}}
 
-echo "Hello Python"
