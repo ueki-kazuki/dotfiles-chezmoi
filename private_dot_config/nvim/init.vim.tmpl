@@ -45,6 +45,7 @@ call dein#begin(s:dein_base)
   call dein#add('kuuote/ddu-source-mr')
   call dein#add('lambdalisue/mr.vim')
   call dein#add('shun/ddu-source-buffer')
+  call dein#add('shun/ddu-source-rg')
   " ddu-kind, ddu-filter
   call dein#add('Shougo/ddu-filter-matcher_substring')
   call dein#add('Shougo/ddu-filter-sorter_alpha')
@@ -83,7 +84,10 @@ call dein#begin(s:dein_base)
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-surround')
   call dein#add('rust-lang/rust.vim')
+  call dein#add('preservim/tagbar')
   " call dein#add('christoomey/vim-tmux-navigator')
+  "
+  call dein#add('aereal/vim-colors-japanesque')
 
 " Finish Dein initialization (required)
 call dein#end()
@@ -113,13 +117,17 @@ let maplocalleader = ","
 nnoremap <silent> <Leader>m :<C-u>Ddu mr<CR>
 nnoremap <silent> <C-t><C-t> :<C-u>Ddu buffer<CR>
 nnoremap <silent> <C-t>t     :<C-u>Ddu buffer<CR>
+nnoremap <silent> <Leader>g :<C-u>DduRgLive<CR>
 nnoremap <silent> <Leader>r :<C-u>Ddu register<CR>
 nnoremap <silent> <Leader>n :<C-u>Ddu file_rec -source-param-new -volatile<CR>
 nnoremap <silent> <Leader>f <Cmd>call ddu#start({
 \   'name': 'filer',
-\   'uiParams': {'filer': {'search': expand('%:p')}},
+\   'uiParams': {'filer': {
+\       'search': expand('%:p'),
+\       'sort': 'filename',
+\   }},
 \ })<CR>
-"nnoremap <silent> <Leader>f :<C-u>Ddu file_rec<CR>
+"nnoremap <silent> <Leader>f :<C-u>Ddu file<CR>
 nnoremap <silent> <C-t><C-p>   :<C-u>bprev<CR>
 nnoremap <silent> <C-t><C-n>   :<C-u>bnext<CR>
 nnoremap <silent> <C-t>p       :<C-u>bprev<CR>
@@ -132,6 +140,7 @@ nnoremap <silent> <Leader>p "+p
 nnoremap <silent> <Leader>P "+P
 vnoremap <silent> <Leader>p "+p
 vnoremap <silent> <Leader>P "+P
+nnoremap <silent> <Leader>t :TagbarToggle<CR>
 "
 
 runtime! userautoload/*.vim
