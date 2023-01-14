@@ -7,6 +7,7 @@ SETUVAR _fish_abbr_cat:bat
 SETUVAR _fish_abbr_conf:nvim\x20\x24XDG_CONFIG_HOME/nvim/init\x2evim
 SETUVAR _fish_abbr_docker:finch
 SETUVAR _fish_abbr_dot:chezmoi
+SETUVAR _fish_abbr_dotd:cd\x20/Users/uekikazuki/\x2elocal/share/chezmoi
 SETUVAR _fish_abbr_find:fd
 SETUVAR _fish_abbr_gita:git\x20add
 SETUVAR _fish_abbr_gitc:git\x20commit
