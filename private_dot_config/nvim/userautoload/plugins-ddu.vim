@@ -16,13 +16,19 @@ call ddu#custom#patch_global({
     \     {'name':'mr'},
     \     {'name':'register'},
     \     {'name':'buffer'},
+    \     {'name':'rg'},
     \   ],
     \   'sourceOptions': {
     \     '_': {
     \       'matchers': ['matcher_substring'],
     \       'columns': ['filename'],
     \     },
-    \     'file_rec': {
+    \   'sourceParams' : {
+    \     'rg' : {
+    \       'args': ['--column', '--no-heading', '--color', 'never', '--json'],
+    \     },
+    \   },
+    \   'file_rec': {
     \       'sorters': ['sorter_alpha'],
     \     },
     \   },
@@ -41,6 +47,7 @@ call ddu#custom#patch_global({
     \       'startFilter': v:false,
     \       'prompt': '> ',
     \       'split': 'floating',
+    \       'floatingBorder': 'single',
     \       'winCol': &columns * 2 / 12,
     \       'winWidth': &columns * 3 / 12,
     \       'winHeight': &lines / 2,
@@ -51,7 +58,7 @@ call ddu#custom#patch_global({
     \       'previewWidth': &columns * 5 / 12,
     \       'previewHeight': &lines / 2,
     \       'previewRow': &lines / 2 - 10,
-    \       'previewFloatingBorder': 3,
+    \       'previewFloatingBorder': "single",
     \       'previewFloatingZindex': 100,
     \       'autoAction': { 'name': 'preview' },
     \     }
@@ -66,6 +73,9 @@ call ddu#custom#patch_local('filer', {
     \       'columns': ['filename', 'icon_filename'],
     \       'sorters': ['sorter_alpha'],
     \     },
+    \     'rg': {
+    \       'matchers': ['converter_display_word', 'matcher_substring'],
+    \     },
     \   },
     \   'kindOptions': {
     \     'file': {
@@ -77,6 +87,7 @@ call ddu#custom#patch_local('filer', {
     \       'startFilter': v:false,
     \       'prompt': '> ',
     \       'split': 'floating',
+    \       'sort': 'filename',
     \     }
     \   },
     \ })
@@ -91,6 +102,14 @@ function! s:ddu_my_settings() abort
         \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
   nnoremap <buffer><silent> q
         \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+  nnoremap <buffer> j
+        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)")<CR>
+  nnoremap <buffer> k
+        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)")<CR>
+  inoremap <buffer> <C-j>
+        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)")<CR>
+  inoremap <buffer> <C-k>
+        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)")<CR>
 endfunction
 
 autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
@@ -174,3 +193,19 @@ endfunction
 "    au BufEnter * if s:isdir(expand('%')) | bd | call ddu#start() | endif
 "augroup END
 "
+
+command! DduRgLive call <SID>ddu_rg_live()
+function! s:ddu_rg_live() abort
+call ddu#start({
+    \   'volatile': v:true,
+    \   'sources': [{
+    \     'name': 'rg',
+    \     'options': {'matchers': []},
+    \   }],
+    \   'uiParams': {'ff': {
+    \     'startFilter': v:true,
+    \     'ignoreEmpty': v:false,
+    \     'autoResize': v:false,
+    \   }},
+    \ })
+endfunction
