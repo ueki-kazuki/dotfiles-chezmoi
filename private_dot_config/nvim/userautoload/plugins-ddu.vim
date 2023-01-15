@@ -103,31 +103,24 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> q
         \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
   nnoremap <buffer> j
-        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)")<CR>
+        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)<Bar>redraw")<CR>
   nnoremap <buffer> k
-        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)")<CR>
+        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)<Bar>redraw")<CR>
   inoremap <buffer> <C-j>
-        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)")<CR>
+        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)<Bar>redraw")<CR>
   inoremap <buffer> <C-k>
-        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)")<CR>
+        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)<Bar>redraw")<CR>
 endfunction
 
 autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
 function! s:ddu_filter_my_settings() abort
-  inoremap <buffer><silent> <CR>
-        \ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
-  nnoremap <buffer><silent> <CR>
-        \ <Cmd>close<CR>
-  nnoremap <buffer><silent> q
-        \ <Cmd>close<CR>
-  nnoremap <buffer> j
-        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)")<CR>
-  nnoremap <buffer> k
-        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)")<CR>
-  inoremap <buffer> <C-j>
-        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)")<CR>
-  inoremap <buffer> <C-k>
-        \ <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)")<CR>
+  inoremap <buffer><silent> <CR> <Cmd>close<CR><Esc><Bar>redraw
+  nnoremap <buffer><silent> <CR> <Cmd>close<CR><Esc><Bar>redraw
+  nnoremap <buffer><silent> q    <Cmd>close<CR>
+  nnoremap <buffer> j     <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)<Bar>redraw")<CR>
+  nnoremap <buffer> k     <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)<Bar>redraw")<CR>
+  inoremap <buffer> <C-j> <Cmd>call ddu#ui#ff#execute("call cursor(line('.')+1,0)<Bar>redraw")<CR>
+  inoremap <buffer> <C-k> <Cmd>call ddu#ui#ff#execute("call cursor(line('.')-1,0)<Bar>redraw")<CR>
 endfunction
 
 
