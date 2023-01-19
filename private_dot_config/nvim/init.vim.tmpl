@@ -1,18 +1,3 @@
-" 別のバッファーに移る時に保存を確認してこないようにする
-set hidden
-" カレント行ハイライト
-set cursorline
-" 行番号を表示する
-set number
-" InsertModeになる際にカーソル位置を画面中央にする
-autocmd InsertEnter * norm zz
-" Remove trailing whitespace on save
-autocmd BufWritePre * %s/\s\+$//e
-
-" Terminal mode
-tnoremap <Esc> <C-\><C-n>
-autocmd TermOpen * setlocal statusline=%{b:term_title}
-
 " Ward off unexpected things that your distro might have made, as
 " well as sanely reset options when re-sourcing .vimrc
 set nocompatible
@@ -85,9 +70,12 @@ call dein#begin(s:dein_base)
   call dein#add('tpope/vim-surround')
   call dein#add('rust-lang/rust.vim')
   call dein#add('preservim/tagbar')
+  call dein#add('jiangmiao/auto-pairs')
+  call dein#add('liuchengxu/vim-which-key')
   " call dein#add('christoomey/vim-tmux-navigator')
   "
   call dein#add('aereal/vim-colors-japanesque')
+  call dein#add('folke/tokyonight.nvim')
 
 " Finish Dein initialization (required)
 call dein#end()
@@ -114,6 +102,8 @@ endif
 " 2021/01/05
 let mapleader = "\<Space>"
 let maplocalleader = ","
+nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 nnoremap <silent> <Leader>m :<C-u>Ddu mr<CR>
 nnoremap <silent> <C-t><C-t> :<C-u>Ddu buffer<CR>
 nnoremap <silent> <C-t>t     :<C-u>Ddu buffer<CR>
@@ -144,4 +134,3 @@ nnoremap <silent> <Leader>t :TagbarToggle<CR>
 "
 
 runtime! userautoload/*.vim
-

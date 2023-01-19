@@ -1,5 +1,6 @@
 set termguicolors
-colorscheme japanesque
+"colorscheme japanesque
+colorscheme tokyonight-moon
 
 " highlight{{{
 " https://www.ditig.com/256-colors-cheat-sheet
@@ -24,5 +25,9 @@ highlight PmenuThumb  ctermbg=15
 highlight NormalFloat ctermfg=255 ctermbg=0
 highlight Visual      ctermfg=255 ctermbg=0
 
-
-" }}}
+" Wherekey
+"
+highlight WhichKeyFloating ctermfg=255 ctermbg=0
+highlight WhichKeyTrigger  ctermfg=232 ctermbg=178 guifg=#333300 guibg=#ffbb7d
+highlight WhichKeyName     ctermfg=171 ctermbg=239 guifg=#d75fd7 guibg=#4e4e4e
+"}}}
