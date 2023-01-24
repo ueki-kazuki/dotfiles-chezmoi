@@ -49,7 +49,13 @@ return require('packer').startup(function(use)
     -- telescope
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope-ghq.nvim',
+        },
+        config = function()
+            require('telescope').load_extension('ghq')
+        end,
     }
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'

@@ -6,6 +6,7 @@ vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>m', builtin.oldfiles, {})
 vim.keymap.set('n', '<leader>r', builtin.registers, {})
 vim.keymap.set('n', '<C-t><C-t>', builtin.buffers, {})
+vim.keymap.set('n', '<leader>G', '<Cmd>Telescope ghq list<CR>', {})
 
 require('telescope').setup {
     defaults = {
@@ -35,5 +36,6 @@ require('telescope').setup {
         --   extension_config_key = value,
         -- }
         -- please take a look at the readme of the extension you want to configure
+        --
     }
 }
