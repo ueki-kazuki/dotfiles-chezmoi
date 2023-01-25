@@ -1,4 +1,8 @@
 vim.cmd[[
+let g:vsnip_snippet_dir = expand($XDG_CONFIG_HOME . '/vsnip')
+
+inoremap <expr><CR> pumvisible() ? "\<c-y>" : "\<cr>"
+
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 
