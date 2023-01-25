@@ -57,11 +57,13 @@ return require('packer').startup(function(use)
             require('telescope').load_extension('ghq')
         end,
     }
+    use 'hrsh7th/nvim-cmp'
+    -- nvim-cmp sources
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-vsnip' -- nvim-cmp source for vim-vsnip
     use 'hrsh7th/vim-vsnip' -- snipetts engine
     use 'hrsh7th/vim-vsnip-integ'

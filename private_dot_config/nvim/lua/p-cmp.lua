@@ -30,7 +30,9 @@ cmp.setup({
         -- { name = 'snippy' }, -- For snippy users.
     }, {
         { name = 'buffer' },
-    })
+    }, {
+        { name = 'nvim_lua' },
+    }),
 })
 
 -- Set configuration for specific filetype.
@@ -59,4 +61,3 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     })
 })
-
