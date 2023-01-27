@@ -65,6 +65,9 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-vsnip' -- nvim-cmp source for vim-vsnip
+    use 'onsails/lspkind.nvim'
+
+    -- snipetts
     use 'hrsh7th/vim-vsnip' -- snipetts engine
     use 'hrsh7th/vim-vsnip-integ'
     use "rafamadriz/friendly-snippets"
