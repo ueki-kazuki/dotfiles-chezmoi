@@ -17,5 +17,6 @@ require("noice").setup({
     },
 })
 require('notify').setup({
-    render='minimal'
+    render = 'minimal',
+    background_colour = "#000000",
 })
