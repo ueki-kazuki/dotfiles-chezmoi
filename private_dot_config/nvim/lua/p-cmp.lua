@@ -53,13 +53,16 @@ cmp.setup({
         end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
+        { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
         { name = 'vsnip' }, -- For vsnip users.
         -- { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
+    },
+    -- see :help sources[n].group_index
+    {
         { name = 'buffer' },
-        { name = 'nvim_lua' },
     }),
     view = {
         entries = { name = 'custom', selection_order = 'near_cursor' }
