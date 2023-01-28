@@ -40,7 +40,8 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'tpope/vim-fugitive'
     use 'rmagatti/alternate-toggler'
-    use 'jiangmiao/auto-pairs'
+    use 'windwp/nvim-autopairs'
+
     use 'mg979/vim-visual-multi'
 
     -- statusline
