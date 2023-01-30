@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim"
     }
+    use 'jose-elias-alvarez/null-ls.nvim'
     -- Filer
     use {
         'nvim-tree/nvim-tree.lua',
@@ -96,6 +97,15 @@ return require('packer').startup(function(use)
     })
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+    -- Which key
+    use {
+        'folke/which-key.nvim',
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+    }
 
     if packer_bootstrap then
         require('packer').sync()

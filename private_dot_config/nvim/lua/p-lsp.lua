@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     keymap.set('n', 'gD', buffer.declaration, bufopts)
     -- keymap.set('n', 'gd', buffer.definition, bufopts)
-    keymap.set('n', '<leader>D', buffer.type_definition, bufopts)
+    keymap.set('n', '<leader>D', buffer.type_definition, vim.tbl_extend('force', bufopts, {desc = "Type Definition"}))
     keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', bufopts)
     keymap.set('n', 'K', buffer.hover, bufopts)
     keymap.set('n', 'gi', buffer.implementation, bufopts)
@@ -30,10 +30,10 @@ local on_attach = function(client, bufnr)
     --keymap.set('n', '<leader>wl', function()
     --    print(vim.inspect(buffer.list_workspace_folders()))
     --end, bufopts)
-    keymap.set('n', '<leader>rn', buffer.rename, bufopts)
-    keymap.set('n', '<leader>ca', buffer.code_action, bufopts)
+    keymap.set('n', '<leader>rn', buffer.rename, vim.tbl_extend('force', bufopts, { desc = "Rename" }))
+    keymap.set('n', '<leader>ca', buffer.code_action, vim.tbl_extend('force', bufopts, { desc = "Action" }))
     keymap.set('n', 'gr', buffer.references, bufopts)
-    keymap.set('n', '<leader>F', function() buffer.format { async = true } end, bufopts)
+    keymap.set('n', '<leader>F', function() buffer.format { async = true } end, vim.tbl_extend('force', bufopts, { desc = "Format"}))
 
     -- format on save
     --vim.api.nvim_create_autocmd('BufWritePre', {
