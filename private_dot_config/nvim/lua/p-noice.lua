@@ -20,3 +20,13 @@ require('notify').setup({
     render = 'minimal',
     background_colour = "#000000",
 })
+
+
+local status_ok, whichkey = pcall(require, "which-key")
+whichkey.register({
+    n = {
+        name = "Noice",
+        l = { function() require("noice").cmd("last") end, "Last" },
+        h = { function() require("noice").cmd("history") end, "History" },
+    }
+}, { prefix = "<leader>" })
