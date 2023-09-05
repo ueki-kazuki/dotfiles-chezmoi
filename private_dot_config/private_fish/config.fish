@@ -56,8 +56,8 @@ if status is-interactive
     set -g fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
 
     # Google Cloud
-    set __google_cloud_sdk "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
-    [ -f $__google_cloud_sdk ]; and source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; or true
+    set __google_cloud_sdk "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"
+    [ -f $__google_cloud_sdk ]; and source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"; or true
 
     # openjdk@11 {{{
     # For the system Java wrappers to find this JDK, symlink it with

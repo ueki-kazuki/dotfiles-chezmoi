@@ -4,7 +4,7 @@ SETUVAR --export PYENV_ROOT:/Users/uekikazuki/\x2epyenv
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_cat:bat
-SETUVAR _fish_abbr_conf:nvim\x20\x24XDG_CONFIG_HOME/nvim/init\x2evim
+SETUVAR _fish_abbr_conf:lvim\x20\x24XDG_CONFIG_HOME/lvim/init\x2evim
 SETUVAR _fish_abbr_docker:finch
 SETUVAR _fish_abbr_dot:chezmoi
 SETUVAR _fish_abbr_dotd:cd\x20/Users/uekikazuki/\x2elocal/share/chezmoi
@@ -15,7 +15,7 @@ SETUVAR _fish_abbr_gitp:git\x20push\x20\x2du\x20origin
 SETUVAR _fish_abbr_less:bat
 SETUVAR _fish_abbr_ll:exa\x20\x2dl\x20\x2d\x2dgit\x2dignore
 SETUVAR _fish_abbr_ls:exa
-SETUVAR _fish_abbr_vi:nvim
+SETUVAR _fish_abbr_vi:lvim
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:c397d8
@@ -46,4 +46,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/Users/uekikazuki/\x2ecargo/bin\x1e/Users/uekikazuki/go/bin\x1e/usr/local/bin\x1e/Users/uekikazuki/\x2eserverless/bin
+SETUVAR fish_user_paths:/Users/uekikazuki/\x2elocal/bin\x1e/Users/uekikazuki/\x2ecargo/bin\x1e/Users/uekikazuki/go/bin\x1e/usr/local/bin\x1e/Users/uekikazuki/\x2eserverless/bin
