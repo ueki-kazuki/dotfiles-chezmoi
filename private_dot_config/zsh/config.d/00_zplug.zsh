@@ -22,6 +22,9 @@ zplug "zsh-users/zsh-completions"
 # 256色表示にする
 zplug "chrissicool/zsh-256color"
 
+# abbrev
+zplug "olets/zsh-abbr"
+
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
