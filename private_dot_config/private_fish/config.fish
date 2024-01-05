@@ -70,6 +70,9 @@ if status is-interactive
     # For compilers to find openjdk@11 you may need to set:
     set -gx CPPFLAGS "-I/usr/local/opt/openjdk@11/include"
     # }}}
-end
 
+end
+if which neofetch
+  neofetch
+end
 
